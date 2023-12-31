@@ -45,7 +45,12 @@ pipeline {
                 sh 'docker push $APP_NAME:$BUILD_NUMBER'
             }
         }
+	stage('Trigger ManifestUpdate') {
+             steps{
+                build job: 'node-app-manifest', parameters: [string(name: 'DOCKERTAG', value: env.BUILD_NUMBER)]     
 
+            } 
+           } 
      }
 }
 
