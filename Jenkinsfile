@@ -47,7 +47,7 @@ pipeline {
         }
 	stage('Trigger ManifestUpdate') {
              steps{
-                build job: 'node-app-manifest', parameters: [string(name: 'DOCKERTAG', value: env.BUILD_NUMBER)]     
+                build job: 'node-app-manifest', parameters: [string(name: 'IMAGE_TAG', value: env.BUILD_NUMBER)]     
 
             } 
            } 
